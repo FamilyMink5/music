@@ -52,10 +52,6 @@ NAS_WEBDAV_PASSWORD=your_webdav_password
 # Spotify API
 SPOTIFY_CLIENT_ID=your_spotify_client_id
 SPOTIFY_CLIENT_SECRET=your_spotify_client_secret
-
-# Apple Music API (선택 사항)
-APPLE_MUSIC_DEVELOPER_TOKEN=your_apple_music_developer_token
-APPLE_MUSIC_STOREFRONT=us
 ```
 
 4. 슬래시 명령어 등록
@@ -77,7 +73,7 @@ npm start
 - `/queue` - 현재 재생 대기열을 표시합니다
 - `/leave` - 봇을 음성 채널에서 내보냅니다
 
-### 플레이리스트
+### 플레이리스트 (미완성)
 - `/playlist create [name]` - 새 플레이리스트를 생성합니다
 - `/playlist list` - 내 플레이리스트 목록을 표시합니다
 - `/playlist view [id]` - 플레이리스트의 곡 목록을 표시합니다
@@ -88,14 +84,30 @@ npm start
 
 ## 스트리밍 서비스 지원
 
+봇은 다음 스트리밍 서비스의 URL을 지원합니다:
+
+### YouTube / YouTube Music
+- 일반적인 YouTube 동영상 및 YouTube Music 링크를 지원합니다.
+- 예시: `/play https://www.youtube.com/watch?v=dQw4w9WgXcQ`
+- 예시: `/play https://music.youtube.com/watch?v=xxxxxxxxxxx`
+
+### Spotify
+- Spotify 트랙, 앨범, 플레이리스트 링크를 지원합니다.
+- `.env` 파일에 Spotify API 키 설정이 필요합니다.
+- 예시: `/play https://open.spotify.com/track/xxxxxxxxxxxxxxx`
+
 ### Apple Music
-봇은 Apple Music URL을 자동으로 처리합니다. Apple Music 개발자 토큰을 수동으로 제공하지 않아도 됩니다 - 봇이 자동으로 Apple Music 웹사이트에서 필요한 토큰을 추출합니다. 다음과 같은 링크 형식을 지원합니다:
+봇은 Apple Music URL을 자동으로 처리합니다. 다음과 같은 링크 형식을 지원합니다:
 
 - 트랙: `https://music.apple.com/{국가}/song/{id}`
 - 앨범: `https://music.apple.com/{국가}/album/{id}`
 - 플레이리스트: `https://music.apple.com/{국가}/playlist/{id}`
 
 예시: `/play https://music.apple.com/us/album/bohemian-rhapsody/1440806041?i=1440806768`
+
+### Melon
+- Melon 트랙, 앨범, 플레이리스트 링크를 지원합니다.
+- 예시: `/play https://www.melon.com/song/detail.htm?songId=xxxxxxx`
 
 ## 개발 환경에서 실행
 
@@ -110,13 +122,6 @@ npm run dev
 - yt-dlp가 로컬 시스템과 SSH 서버 둘 다에 설치되어 있어야 합니다.
 - PostgreSQL 데이터베이스가 필요합니다.
 - WebDAV가 지원되는 NAS 또는 저장소가 필요합니다.
-
-## 환경 변수 설정
-
-### Apple Music
-
-- `APPLE_MUSIC_EMAIL`: 이메일 주소
-- `APPLE_MUSIC_PASSWORD`: 애플 아이디 비밀번호
 
 ## 라이선스
 
