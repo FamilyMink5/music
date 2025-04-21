@@ -6,8 +6,8 @@ TypeScript로 작성된 디스코드 음악 봇입니다. 여러가지 기능을
 
 - 2개의 yt-dlp 다운로드 방식 (로컬, SSH 서버)
 - 유저별 플레이리스트 관리 (PostgreSQL 저장)
-- 캐시 시스템 (WebDAV NAS에 저장)
-- 다양한 스트리밍 서비스 지원 (YouTube, Spotify, Apple Music)
+- 캐시 시스템 (WebDAV NAS에 저장) (아직 오류가 있어요)
+- 다양한 스트리밍 서비스 지원 (YouTube, Spotify, Apple Music, Melon)
 - 기본적인 음악 재생 기능들 (재생, 건너뛰기, 대기열 등)
 
 ## 설치 방법
@@ -68,7 +68,7 @@ npm start
 ## 명령어 목록
 
 ### 음악 재생
-- `/play [url]` - YouTube, Spotify, Apple Music, Deezer URL의 음악을 재생합니다
+- `/play [url]` - YouTube, Spotify, Apple Music, Melon URL의 음악을 재생합니다
 - `/skip` - 현재 재생 중인 곡을 건너뜁니다
 - `/queue` - 현재 재생 대기열을 표시합니다
 - `/leave` - 봇을 음성 채널에서 내보냅니다
@@ -119,7 +119,7 @@ npm run dev
 ## 주의사항
 
 - 이 봇은 Discord.js v14와 Node.js 16 이상을 필요로 합니다.
-- yt-dlp가 로컬 시스템과 SSH 서버 둘 다에 설치되어 있어야 합니다.
+- yt-dlp가 dotenv의 경로에 있거나,프로젝트 디렉토리에 있어야 합니다.
 - PostgreSQL 데이터베이스가 필요합니다.
 - WebDAV가 지원되는 NAS 또는 저장소가 필요합니다.
 
